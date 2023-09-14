@@ -1,4 +1,7 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
+require('dotenv').config()
 
-module.exports = nextConfig
+const nextConfig = {
+  // Use secret in configuration
+}
+
+module.exports = nextConfig;
