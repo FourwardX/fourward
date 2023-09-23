@@ -1,0 +1,9 @@
+declare module '@editorjs/nested-list';
+declare module '@editorjs/quote';
+declare module '@editorjs/delimiter';
+declare module '@editorjs/header';
+declare module '@calumk/editorjs-codeflask';
+declare module '@editorjs/warning';
+declare module '@editorjs/checklist'
+declare module 'editorjs-alert'
+declare module '@editorjs/image'
