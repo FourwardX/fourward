@@ -10,6 +10,30 @@ import Warning from '@editorjs/warning';
 import Checklist from '@editorjs/checklist'
 import Alert from 'editorjs-alert';
 import ImageTool from '@editorjs/image';
+import { PutBlobResult } from '@vercel/blob';
+
+const ImageAPI = {
+  uploadImage: async (file: File) => {
+    const response = await fetch(`/api/image/upload?filename=${file.name}`, {
+      method: 'POST',
+      body: file,
+    });
+    if (response.ok) {
+      const blob = await response.json() as PutBlobResult;
+      console.log(blob.url);
+      return {
+        "success": 1,
+        "file": {
+          "url": blob.url,
+          // Add any other image data you want to store
+        },
+      };
+    } else {
+      return { success: 0 };
+    }
+  },
+};
+
 
 const EditorComponent = () => {
   const editorRef = useRef<EditorJS | null>(null);
@@ -162,9 +186,22 @@ const EditorComponent = () => {
         image: {
           class: ImageTool,
           config: {
-            endpoints: {
-              byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
-              byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+            uploader: {
+              async uploadByFile(file: File) {
+                try {
+                  const result = await ImageAPI.uploadImage(file);
+                  console.log('Upload result:', result);
+
+                  return result;
+                } catch (error) {
+                  console.error('Upload failed:', error);
+                  return { success: 0 };
+                }
+              },
+
+              async uploadByUrl(url: string) {
+                // Implement your logic for uploading by URL
+              }
             }
           }
         }
