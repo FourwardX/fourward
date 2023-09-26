@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 
-const DynamicTextArea = dynamic(() => import('./components/EditorComponent'), { ssr: false });
+const DynamicTextArea = dynamic(() => import('../components/EditorComponent'), { ssr: false });
 
 const Page: React.FC = () => {
   console.log('rendering page @ server');

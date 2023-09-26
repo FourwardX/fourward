@@ -1,30 +1,23 @@
 import fs from 'fs';
-import path from 'path';
 import { createLanguageModel, createJsonTranslator, processRequests } from 'typechat';
 import { Response } from '../models/Response';
+import path from 'path';
 
-class ChatManager {
+export class ChatManager {
   private model;
   private translator;
 
   constructor() {
     this.model = createLanguageModel(process.env);
-    const schemeDir = path.join(__dirname, '../../../','src' ,'models');
-    const schema = fs.readFileSync(path.join(schemeDir, 'Response.ts'), 'utf8');
-    console.log('schema: ', schema);
-
+    const schema = fs.readFileSync(path.resolve("src/models/Response.ts"), 'utf8');
     this.translator = createJsonTranslator<Response>(this.model, schema, 'Response');
   }
 
-  async processChat() {
-    const response = await this.translator.translate("Provide me the step to cook an egg.");
+  async processChat(prompt: string) {
+    const response = await this.translator.translate(prompt);
     if (!response.success) {
-      console.log(response.message);
       return;
     }
-    console.log(response.data);
+    return response;
   }
 }
-const chatManagerInstance = new ChatManager();
-
-export default chatManagerInstance;
