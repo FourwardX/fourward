@@ -1,5 +1,5 @@
 // pages/api/chat.js
-import { ChatManager } from '@/core/ChatManager';
+import { ChatModelManager } from '@/core/ChatModelManager';
 import { NextResponse } from 'next/server';
 export async function POST(request: Request): Promise<NextResponse> {
   if (request.method !== 'POST') {
@@ -14,9 +14,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   }
 
   try {
-    const chatManagerInstance = new ChatManager();
-
-    const chatResponse = await chatManagerInstance.processChat('How to use vending machine?');
+    const chatResponse = await ChatModelManager.generateStorybook(prompt);
 
     // Convert chatResponse to a string or JSX element
     const chat = chatResponse ? chatResponse : 'Null';
