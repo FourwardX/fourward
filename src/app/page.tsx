@@ -5,7 +5,7 @@ const DynamicTextArea = dynamic(() => import('../components/EditorComponent'), {
 const Page: React.FC = () => {
   console.log('rendering page @ server');
   return (
-    <div className="container mx-auto min-h-screen">
+    <div className="container mx-auto min-h-screen storybook-page">
       <DynamicTextArea />
     </div>
   );
