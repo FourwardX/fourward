@@ -9,14 +9,14 @@ export async function POST(request: Request): Promise<NextResponse> {
   // Read and parse the request body
   const requestBody = await request.json();
   const { prompt } = requestBody;
+  console.log('prompt', prompt);
   if (!prompt) {
     return NextResponse.json({ error: 'Prompt is required' }, { status: 400 });
   }
 
   try {
     const chatResponse = await ChatModelManager.generateStorybook(prompt);
-
-    // Convert chatResponse to a string or JSX element
+    console.log('chatResponse', chatResponse);
     const chat = chatResponse ? chatResponse : 'Null';
     return NextResponse.json(chat);
   } catch (error) {

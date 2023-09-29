@@ -97,6 +97,7 @@ export default class Storybook {
       })
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           const uniqueId = this.generateUniqueId();
           this.createStory(data, uniqueId);
         })
