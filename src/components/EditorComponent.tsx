@@ -12,6 +12,7 @@ import Alert from 'editorjs-alert';
 import ImageTool from '@editorjs/image';
 import { PutBlobResult } from '@vercel/blob';
 import Storybook from '../editorjs/block/Storybook';
+import AttendanceTool from '@/editorjs/block/AttendanceTool';
 
 const ImageAPI = {
   uploadImage: async (file: File) => {
@@ -117,6 +118,10 @@ const EditorComponent = () => {
         },
         storybook: {
           class: Storybook,
+          inlineToolbar: true
+        },
+        attendance: {
+          class: AttendanceTool,
           inlineToolbar: true
         },
       },
