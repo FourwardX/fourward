@@ -51,6 +51,7 @@ const EditorComponent = () => {
   useEffect(() => {
     editorRef.current = new EditorJS({
       holder: 'editorjs',
+      readOnly: false,
       data: savedData,  // Load saved data here
       tools: {
         list: {

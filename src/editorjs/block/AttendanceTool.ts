@@ -1,5 +1,6 @@
 // attendanceTool.ts
-import connection from '@/signalR/SignalrClient';
+import connection, { startConnectionIfNeeded } from '@/signalR/SignalrClient';
+import signalR from '@microsoft/signalr';
 
 export default class AttendanceTool {
   private wrapper: HTMLElement;
@@ -14,7 +15,7 @@ export default class AttendanceTool {
   }
 
   render() {
-    connection.start().catch(err => console.error(err));
+    startConnectionIfNeeded();
 
     const entriesDiv = document.createElement('div'); // Div to hold all entries
 
@@ -36,7 +37,7 @@ export default class AttendanceTool {
 
       // Subscribe to SignalR to update the checkbox based on the ID
       connection.on('UpdateAttendance', (userId: string, isPresent: boolean) => {
-        if (input.value === userId) {
+        if (input.value.toLocaleLowerCase() === userId.toLocaleLowerCase()) {
           checkbox.checked = isPresent;
         }
       });
@@ -53,6 +54,8 @@ export default class AttendanceTool {
         checkbox.id = input.value; // Assign the checkbox id with the value of the input
         entryDiv.replaceChild(label, input);
       });
+      addButton.remove();
+      confirmButton.remove();
     });
 
     this.wrapper.appendChild(entriesDiv);
