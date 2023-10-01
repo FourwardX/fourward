@@ -41,10 +41,10 @@ export default class Slogantool {
           ><span style="color: #61afef">println</span>("
         </h1>
         <div class="string">
-          <h1 class="greeting en">We <b>see</b>!</h1>
-          <h1 class="greeting es">We explore!</h1>
-          <h1 class="greeting de">We imagine!</h1>
-          <h1 class="greeting it">We create!</h1>
+          <h1 class="greeting en">We <b>see</b> it!</h1>
+          <h1 class="greeting es">We explore it!</h1>
+          <h1 class="greeting de">We imagine it!</h1>
+          <h1 class="greeting it">We create it!</h1>
         </div>
         <h1 class="closure">");</h1>
       </div>
