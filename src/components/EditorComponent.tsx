@@ -358,11 +358,6 @@ const EditorComponent = () => {
         "data": {
           "text": "Step 2: For demonstration purposes, visit <a href='https://spirify.azurewebsites.net/welcome/Wenhao'>Welcome Wenhao</a> to trigger an \"Attend\" event, and use this url <a href='https://spirify.azurewebsites.net/welcome/wenhao/bye'>Bye Wenhao</a> to trigger a \"Leaving\" event. Observe the changes to the checkbox."
         }
-      }, {
-        "type": "attandance",
-        "data": {
-          "text": "Wenhao"
-        }
       },
       {
         "type": "paragraph",
