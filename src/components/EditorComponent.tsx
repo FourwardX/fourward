@@ -341,7 +341,7 @@ const EditorComponent = () => {
     {
       "type": "paragraph",
       "data": {
-        "text": "Step 2: A welcome page will appear, signaling that attendance has beem taken successfully."
+        "text": "Step 2: A welcome page will appear, signaling that attendance has been taken successfully."
       }
     },
     {
