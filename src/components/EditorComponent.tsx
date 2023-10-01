@@ -93,7 +93,7 @@ const EditorComponent = () => {
         "stretched": false
       }
     },
-    
+
     {
       "type": "paragraph",
       "data": {
@@ -111,7 +111,7 @@ const EditorComponent = () => {
         "stretched": false
       }
     },
-    
+
     {
       "type": "paragraph",
       "data": {
@@ -459,17 +459,6 @@ const EditorComponent = () => {
 
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const ceBlockContent = document.querySelector('.ce-block__content');
-
-      if (ceBlockContent) {
-        const sloganWrapper = ceBlockContent.querySelector('.slogan-wrapper');
-
-        if (sloganWrapper) {
-          ceBlockContent.style.maxWidth = 'unset';
-        }
-      }
-    });
   }, []);
 
 
