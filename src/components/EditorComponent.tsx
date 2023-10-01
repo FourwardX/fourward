@@ -47,12 +47,25 @@ const EditorComponent = () => {
     "blocks": [
       {
         "type": "slogan",
-      },
-      {
+        "data": {
+        }
+      }, {
         "type": "header",
         "data": {
           "text": "What is DOCU?",
           "level": 1
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "file": {
+            "url": "https://xvhx60gywwtyt2mu.public.blob.vercel-storage.com/how%20Docu%20works%20in%20the%20future.drawio%20(1)-mI2xkIcAg199YpEVRDrJgTbSlnQhcq.png"
+          },
+          "caption": "",
+          "withBorder": false,
+          "withBackground": false,
+          "stretched": false
         }
       },
       {
@@ -207,10 +220,8 @@ const EditorComponent = () => {
         }
       },
       {
-        "type": "paragraph",
-        "data": {
-          "text": "----------------------------------------------------------------------------------------"
-        }
+        "type": "delimiter",
+        "data": {}
       },
       {
         "type": "header",
@@ -370,9 +381,34 @@ const EditorComponent = () => {
       {
         "type": "paragraph",
         "data": {
-          "text": "ii) Able to fully automate data pipeline. After uploading Excel, our system automates email merging, send emails to recipients, and orginizes names for easy attendance taking"
+          "text": "ii) Able to fully automate data pipeline. After uploading Excel, our system automates email merging, send emails to recipients, and orginizes names for easy attendance taking."
         }
-      }
+      },
+      {
+        "type": "header",
+        "data": {
+          "text": "Future Roadmap",
+          "level": 2
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "file": {
+            "url": "https://xvhx60gywwtyt2mu.public.blob.vercel-storage.com/Screenshot%202023-10-01%20at%206.13.50%20PM-FvU4tR5R5UkHHe74sUyagygnJWClBp.png"
+          },
+          "caption": "",
+          "withBorder": false,
+          "withBackground": false,
+          "stretched": false
+        }
+      }, {
+        "type": "header",
+        "data": {
+          "text": "So try it out now! Start type something in the editor and see what happens!",
+          "level": 1
+        }
+      },
 
     ],
     "version": "2.22.2"
