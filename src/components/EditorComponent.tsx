@@ -62,7 +62,7 @@ const EditorComponent = () => {
           "file": {
             "url": "https://xvhx60gywwtyt2mu.public.blob.vercel-storage.com/how%20Docu%20works%20in%20the%20future.drawio%20(1)-mI2xkIcAg199YpEVRDrJgTbSlnQhcq.png"
           },
-          "caption": "",
+          "caption": "  ",
           "withBorder": false,
           "withBackground": false,
           "stretched": false
@@ -356,13 +356,36 @@ const EditorComponent = () => {
       {
         "type": "paragraph",
         "data": {
-          "text": "Step 2: A welcome page will appear, signaling that attendance has been taken successfully."
+          "text": "Step 2: For demonstration purposes, visit <a href='https://spirify.azurewebsites.net/welcome/Wenhao'>Welcome Wenhao</a> to trigger an \"Attend\" event, and use this url <a href='https://spirify.azurewebsites.net/welcome/wenhao/bye'>Bye Wenhao</a> to trigger a \"Leaving\" event. Observe the changes to the checkbox."
+        }
+      }, {
+        "type": "attandance",
+        "data": {
+          "text": "Wenhao"
         }
       },
       {
         "type": "paragraph",
         "data": {
-          "text": "----------------------------------------------------------------------------------------"
+          "text": "Step 3: A welcome page will appear, signaling that attendance has been taken successfully."
+        }
+      },
+      {
+        "type": "header",
+        "data": {
+          "text": "Creating a Demand-Supply Dashboard",
+          "level": 2
+        }
+      },
+      {
+        "type": "paragraph",
+        "data": {
+          "text": "Utilizing the same principles as our attendance-taking system, we can develop a Demand-Supply Dashboard using Docu. This will enable us to swiftly identify and analyze the diverse requirements of our clients."
+        }
+      },
+      {
+        "type": "delimiter",
+        "data": {
         }
       },
       {
@@ -405,10 +428,16 @@ const EditorComponent = () => {
       }, {
         "type": "header",
         "data": {
-          "text": "So try it out now! Start type something in the editor and see what happens!",
+          "text": "Give It a Try!",
           "level": 1
         }
       },
+      {
+        "type": "paragraph",
+        "data": {
+          "text": "Start Typing in the Editor to See the Magic Unfold!"
+        }
+      }
 
     ],
     "version": "2.22.2"

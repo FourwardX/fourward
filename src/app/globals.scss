@@ -175,3 +175,12 @@ p {
 .ce-block__content:has(.slogan-wrapper) {
 	max-width: unset;
 }
+
+.image-tool__caption {
+	display: none;
+}
+@media (max-width: 1300px) {
+	.slogan-wrapper {
+		display: none;
+	}
+}

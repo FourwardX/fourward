@@ -4,6 +4,32 @@ import signalR from '@microsoft/signalr';
 
 export default class AttendanceTool {
   private wrapper: HTMLElement;
+  private data: any;
+  createNewEntry(entriesDiv: HTMLElement) {
+    const entryDiv = document.createElement('div');
+    entryDiv.classList.add("entry-div");
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+
+    const input = document.createElement('input');
+    input.classList.add("cdx-input");
+    input.type = 'text';
+    input.placeholder = 'User ID';
+
+    entryDiv.appendChild(checkbox);
+    entryDiv.appendChild(input);
+
+    entriesDiv.appendChild(entryDiv);
+
+    // Subscribe to SignalR to update the checkbox based on the ID
+    connection.on('UpdateAttendance', (userId: string, isPresent: boolean) => {
+      if (input.value.toLocaleLowerCase() === userId.toLocaleLowerCase()) {
+        checkbox.checked = isPresent;
+      }
+    });
+  }
+
   static get toolbox() {
     return {
       title: 'Attandance',
@@ -12,42 +38,29 @@ export default class AttendanceTool {
   }
   constructor() {
     this.wrapper = document.createElement('div');
+    // this.data = data;
+    console.log("data is: constructor", this.data)
+
   }
 
   render() {
+    if (this.data != null) {
+      return this.wrapper;
+    }
+    console.log("data is: redner ",this.data)
     startConnectionIfNeeded();
 
     const instructionInfo = document.createElement('p');
     instructionInfo.innerText = 'Please use the \"Add\" button to add more users. ';
     const entriesDiv = document.createElement('div'); // Div to hold all entries
-
+    this.createNewEntry(entriesDiv);
     const addButton = document.createElement('button');
     addButton.innerText = 'Add';
     addButton.classList.add("cdx-button");
 
 
     addButton.addEventListener('click', () => {
-      const entryDiv = document.createElement('div');
-      entryDiv.classList.add("entry-div");
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-
-      const input = document.createElement('input');
-      input.classList.add("cdx-input");
-      input.type = 'text';
-      input.placeholder = 'User ID';
-
-      entryDiv.appendChild(checkbox);
-      entryDiv.appendChild(input);
-
-      entriesDiv.appendChild(entryDiv);
-
-      // Subscribe to SignalR to update the checkbox based on the ID
-      connection.on('UpdateAttendance', (userId: string, isPresent: boolean) => {
-        if (input.value.toLocaleLowerCase() === userId.toLocaleLowerCase()) {
-          checkbox.checked = isPresent;
-        }
-      });
+      this.createNewEntry(entriesDiv);
     });
 
     const confirmButton = document.createElement('button');
