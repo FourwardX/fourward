@@ -13,6 +13,7 @@ import ImageTool from '@editorjs/image';
 import { PutBlobResult } from '@vercel/blob';
 import Storybook from '../editorjs/block/Storybook';
 import AttendanceTool from '@/editorjs/block/AttendanceTool';
+import Slogantool from '@/editorjs/block/Slogantool';
 
 const ImageAPI = {
   uploadImage: async (file: File) => {
@@ -125,8 +126,24 @@ const EditorComponent = () => {
           class: AttendanceTool,
           inlineToolbar: true
         },
+        slogan: {
+          class: Slogantool,
+          inlineToolbar: true
+        },
       },
 
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const ceBlockContent = document.querySelector('.ce-block__content');
+
+      if (ceBlockContent) {
+        const sloganWrapper = ceBlockContent.querySelector('.slogan-wrapper');
+
+        if (sloganWrapper) {
+          ceBlockContent.style.maxWidth = 'unset';
+        }
+      }
     });
   }, []);
 

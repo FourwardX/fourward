@@ -43,3 +43,139 @@ h2 {
 	margin: 10px;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;500&display=swap");
+.slogan-wrapper {
+	position: relative;
+	background: #282c34;
+	height: 450px;
+	overflow: hidden;
+}
+
+.slogan-text-wrapper,
+.slogan-text-wrapper h1 {
+	margin: 0;
+	padding: 0;
+}
+
+.icon-docu {
+	top: 85px;
+	left: 100px;
+	height: 150px;
+	position: absolute;
+}
+.slogan-text-wrapper {
+	position: relative;
+	font-size: 2vmin;
+	font-family: JetBrains Mono, monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0; /* Explicitly set to 0 */
+	padding: 0; /* Explicitly set to 0 */
+	color: #e4bb68;
+	position: absolute;
+	top: 170px;
+	left: 35%;
+}
+
+.string {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	animation: move 4s infinite;
+}
+
+.greeting {
+	position: relative;
+	top: 8.6vmin;
+	animation: white-out 5s infinite;
+}
+
+.closure::after {
+	content: "";
+	position: absolute;
+	height: 25vmin;
+	width: 40vmin;
+	background: #282c34;
+	transform: translate(-45vmin, -24.5vmin);
+}
+
+.closure::before {
+	content: "";
+	position: absolute;
+	height: 25vmin;
+	width: 40vmin;
+	background: #282c34;
+	transform: translate(-40vmin, 5vmin);
+}
+
+.en {
+	color: #fa8231;
+}
+
+.es {
+	color: white;
+}
+
+.de {
+	color: #c678dd;
+}
+
+.it {
+	color: #a9b0bd;
+}
+
+@keyframes move {
+	25% {
+		transform: translatey(-5.8vmin);
+		opacity: 1;
+	}
+	50% {
+		transform: translatey(-11vmin);
+	}
+	75% {
+		transform: translatey(-16.5vmin);
+	}
+}
+
+p {
+	text-shadow: 0 0 7px rgba(255, 255, 255, 0.3),
+		0 0 3px rgba(255, 255, 255, 0.3);
+}
+.team-name-wrapper {
+	color: #e5e5e5;
+	font-size: 2.26rem;
+	text-transform: uppercase;
+	display: flex;
+	top: 100px;
+	left: 20%;
+	position: absolute;
+	align-items: center;
+	justify-content: center;
+	font-family: JetBrains Mono, monospace;
+}
+
+.animation {
+	height: 50px;
+	overflow: hidden;
+	margin-left: 1rem;
+}
+
+.animation > div > div {
+	padding: 0.25rem 0.75rem;
+	height: 2.81rem;
+	margin-bottom: 2.81rem;
+	display: inline-block;
+}
+
+.animation div:first-child {
+	animation: text-animation 8s infinite;
+}
+
+.first div {
+	background-color: #20a7d8;
+}
+
+.ce-block__content:has(.slogan-wrapper) {
+	max-width: unset;
+}
