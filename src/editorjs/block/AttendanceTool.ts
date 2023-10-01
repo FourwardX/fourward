@@ -17,16 +17,23 @@ export default class AttendanceTool {
   render() {
     startConnectionIfNeeded();
 
+    const instructionInfo = document.createElement('p');
+    instructionInfo.innerText = 'Please use the \"Add\" button to add more users. ';
     const entriesDiv = document.createElement('div'); // Div to hold all entries
 
     const addButton = document.createElement('button');
     addButton.innerText = 'Add';
+    addButton.classList.add("cdx-button");
+
+
     addButton.addEventListener('click', () => {
       const entryDiv = document.createElement('div');
+      entryDiv.classList.add("entry-div");
       const checkbox = document.createElement('input');
       checkbox.type = 'checkbox';
 
       const input = document.createElement('input');
+      input.classList.add("cdx-input");
       input.type = 'text';
       input.placeholder = 'User ID';
 
@@ -45,6 +52,7 @@ export default class AttendanceTool {
 
     const confirmButton = document.createElement('button');
     confirmButton.innerText = 'Confirm';
+    confirmButton.classList.add("cdx-button");
     confirmButton.addEventListener('click', () => {
       Array.from(entriesDiv.childNodes).forEach((entryDiv: any) => {
         const input = entryDiv.querySelector('input[type="text"]');
@@ -58,6 +66,7 @@ export default class AttendanceTool {
       confirmButton.remove();
     });
 
+    this.wrapper.appendChild(instructionInfo);
     this.wrapper.appendChild(entriesDiv);
     this.wrapper.appendChild(addButton);
     this.wrapper.appendChild(confirmButton);
