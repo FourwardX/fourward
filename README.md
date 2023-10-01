@@ -1,4 +1,6 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+PSA hackathon </code sprint> 2023
+Team Fourward Youtube video: https://youtu.be/anK8uqJsplQ  
 
 ## Getting Started
 
